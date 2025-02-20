@@ -36,6 +36,17 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	playerObject.setPosition(200, 200);
 	playerObject.setFillColor(sf::Color::Cyan);
 
+	enemy.setWindow(hwnd);
+	enemy.setPosition(200, 200);
+	enemy.setSize(sf::Vector2f(100, 100));
+	enemy2.setWindow(hwnd);
+	enemy2.setPosition(400, 200);
+	enemy2.setSize(sf::Vector2f(100, 100));
+
+	bg.setWindow(hwnd);
+	bg.setInput(in);
+
+	cursor.setInput(in);
 }
 
 Level::~Level()
@@ -65,7 +76,10 @@ void Level::update(float dt)
 
 	//timer += dt;
 	playerObject.handleInput(dt);
+	bg.handleInput(dt);
 	enemy.update(dt);
+	enemy2.update(dt);
+	cursor.handleInput(dt);
 	//std::cout << timer << std::endl;
 
 	/*if (timer < 0.6) {
@@ -104,11 +118,14 @@ void Level::update(float dt)
 void Level::render()
 {
 	beginDraw();
-	window->setView(view);
+	//window->setView(view);
 
+	window->draw(bg);
 	window->draw(testSprite);
 	window->draw(playerObject);
 	window->draw(enemy);
+	window->draw(enemy2);
+	window->draw(cursor);
 	//window->draw(duck);
 	//window->draw(explosion);
 

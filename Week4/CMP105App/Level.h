@@ -8,6 +8,8 @@
 #include <iostream>
 #include "Player.h"
 #include "Enemy.h"
+#include "Background.h"
+#include "Cursor.h"
 
 
 class Level : BaseLevel {
@@ -30,6 +32,9 @@ private:
 	//sf::Texture explosionTexture;
 	Player playerObject;
 	Enemy enemy;
+	Enemy enemy2;
+	Background bg;
+	Cursor cursor;
 
 	sf::View view;
 };
