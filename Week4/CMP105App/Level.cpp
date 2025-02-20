@@ -8,22 +8,22 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	window = hwnd;
 	input = in;
 
-	view.setCenter(window->getSize().x/2, window->getSize().y / 2);
+	//view.setCenter(window->getSize().x/2, window->getSize().y / 2);
 
 
 	// initialise game objects
 	texture.loadFromFile("gfx/Mushroom.png");
 	enemyTexture.loadFromFile("gfx/Goomba.png");
-	duckTexture.loadFromFile("gfx/coolDuck.png");
-	explosionTexture.loadFromFile("gfx/explosion.png");
+	//duckTexture.loadFromFile("gfx/coolDuck.png");
+	//explosionTexture.loadFromFile("gfx/explosion.png");
 
 
-	duck.setTexture(&duckTexture);
-	duck.setSize(sf::Vector2f(500, 500));
-	duck.setPosition(window->getSize().x / 3.5, window->getSize().y / 4);
+	//duck.setTexture(&duckTexture);
+	//duck.setSize(sf::Vector2f(500, 500));
+	//duck.setPosition(window->getSize().x / 3.5, window->getSize().y / 4);
 
-	explosion.setTexture(&explosionTexture);
-	explosion.setSize(sf::Vector2f(100, 100));
+	//explosion.setTexture(&explosionTexture);
+	//explosion.setSize(sf::Vector2f(100, 100));
 	//explosion.setPosition(window->getSize().x / 3.5, window->getSize().y / 4);
 
 	testSprite.setTexture(&texture);
@@ -58,16 +58,17 @@ void Level::handleInput(float dt)
 // Update game objects
 void Level::update(float dt)
 {
-	static float timer = 0.0f;
-	static bool firstReset = false;
-	static bool secondReset = false;
-	static bool thirdReset = false;
+	//static float timer = 0.0f;
+	//static bool firstReset = false;
+	//static bool secondReset = false;
+	//static bool thirdReset = false;
 
-	timer += dt;
+	//timer += dt;
 	playerObject.handleInput(dt);
-	std::cout << timer << std::endl;
+	enemy.update(dt);
+	//std::cout << timer << std::endl;
 
-	if (timer < 0.6) {
+	/*if (timer < 0.6) {
 		view.move(2000.0f * dt, 0);
 	}
 	else if (timer < 1.8) {
@@ -95,7 +96,7 @@ void Level::update(float dt)
 		view.rotate(5.0f);
 		explosion.setPosition(100, 100);
 
-	}
+	}*/
 	//view.zoom(50.0f);
 }
 
@@ -105,10 +106,11 @@ void Level::render()
 	beginDraw();
 	window->setView(view);
 
-	//window->draw(testSprite);
-	//window->draw(playerObject);
-	window->draw(duck);
-	window->draw(explosion);
+	window->draw(testSprite);
+	window->draw(playerObject);
+	window->draw(enemy);
+	//window->draw(duck);
+	//window->draw(explosion);
 
 	endDraw();
 }

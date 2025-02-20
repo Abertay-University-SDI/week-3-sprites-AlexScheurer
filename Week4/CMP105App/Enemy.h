@@ -8,6 +8,10 @@ private :
 public :
 	Enemy();
 	~Enemy();
-	void bouncyBounce(float dt);
+	void setWindow(sf::RenderWindow* wnd);
+	void update(float dt);
+
+	sf::Texture goomba;
+	sf::RenderWindow* window;
 };
 

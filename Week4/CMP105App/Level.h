@@ -22,14 +22,14 @@ public:
 private:
 	// Level objects
 	GameObject testSprite;
-	GameObject duck;
-	GameObject explosion;
+	//GameObject duck;
+	//GameObject explosion;
 	sf::Texture texture;
 	sf::Texture enemyTexture;
-	sf::Texture duckTexture;
-	sf::Texture explosionTexture;
+	//sf::Texture duckTexture;
+	//sf::Texture explosionTexture;
 	Player playerObject;
-	Enemy goomba;
+	Enemy enemy;
 
 	sf::View view;
 };
